@@ -1,21 +1,365 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Factorio CSS</title>
-        <meta name="description" content="A CSS framework to make your things look like Factorio.">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="factorio.css">
-        <link rel="icon" type="image/x-icon" href="favicon.ico">
-    </head>
-    <body>
-        <div class="fio-panel">
-            <h1>
-                Panel title (h1) 36px bold in HR
-            </h1>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <title>Factorio CSS</title>
+    <meta name="description" content="A CSS framework to make your things look like Factorio.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="factorio.css">
+</head>
+
+<body>
+    <div class="fio-panel">
+        <h1>Panel title (h1) 36px bold in HR</h1>
+        <p>
+            Body text is Titillium Web Regular 28px with 32px of line height. The next element is a frame, we have so many uses for it, like for instance, featuring an area of information or interaction.
+        </p>
+        <div class="fio-frame">
             <p>
-                Body text is Titillium Web Regular 28px with 32px of line height. The next element is a frame, we have so many uses for it, like for instance, featuring an area of information or interaction.
+                Many times we won't have space enough in the screen as to show the entire block of info. That's why we will open a frame in the panel and use a scroll to see all the content.
+            </p>
+            <p>
+                It is important to use the panel frame and the scroll together, because we need an excuse to hide the scrollable content somewhere behind the panel.
+            </p>
+            <p>
+                The next text is just a lorem ipsum demo that shows how the block of text gets behind the panel.
+                <br> Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium eligendi optio quidem ipsam quaerat ex vero dolores enim, molestiae fugit, officiis, consectetur iste amet quo earum! Qui necessitatibus voluptate laboriosam.
             </p>
         </div>
-    </body>
+        <h2>Sliders</h2>
+        <div class="fio-table">
+            <div class="fio-row">
+                <label>
+                    This is a variable
+                    <input type="range" value="50" min="0" max="100">
+                </label>
+                <input class="fio-percent" type="text">
+            </div>
+            <div class="fio-row">
+                <label>
+                    This is a full variable
+                    <input type="range" value="100" min="0" max="100">
+                </label>
+                <input class="fio-percent" type="text">
+            </div>
+            <div class="fio-row">
+                <label>
+                    This is a full variable
+                    <input type="range" value="0" min="0" max="100">
+                </label>
+                <input class="fio-percent" type="text">
+            </div>
+        </div>
+        <div class="fio-row">
+            <div class="fio-section-container">
+                <div class="fio-section">
+                    <h2>Slider button</h2>
+                    <div class="fio-table">
+                        <div class="fio-row">
+                            <input type="range" value="0" min="0" max="0">
+                            <input type="range" value="0" min="0" max="0">
+                            <input type="range" value="0" min="0" max="0">
+                        </div>
+                        <div class="fio-row">
+                            <div>Idle</div>
+                            <div>Hover</div>
+                            <div>Press</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="fio-section-container">
+                <div class="fio-section">
+                    <h2>Editable display</h2>
+                    <div class="fio-table">
+                        <div class="fio-row">
+                            <input class="fio-percent" type="text">
+                            <input class="fio-percent hover" type="text">
+                            <input class="fio-percent press" type="text">
+                            <!-- check if this is active ^ focus v or the other way around -->
+                            <input class="fio-percent active" type="text">
+                        </div>
+                        <div class="fio-row">
+                            <div>Idle</div>
+                            <div>Hover</div>
+                            <div>Press</div>
+                            <div>Release/edit</div>
+                        </div>
+                    </div>
+                    <div class="fio-info-text">
+                        <strong>Font: </strong>Titillium Regular 24px. rgb: 29, 28, 29.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="fio-full-width">
+        <div class="fio-blue-frame fio-info-text">
+            This blue text is called Info Text. Used in the help/info overlay.
+            <br> It's just a body text with rgb: 117, 218, 251 and blue panel tileset.
+            <br> This text can be used also in a normal background, like above. Always with icon. The horizontal lines separating this blue panel are just another use of the frame.
+        </div>
+        <h2>Text button</h2>
+        <div class="fio-table">
+            <div class="fio-row">
+                <button>Idle</button>
+                <button disabled>Disabled</button>
+                <button class="hover">Hover</button>
+                <button class="active">Press</button>
+            </div>
+            <div class="fio-row">
+                <div>
+                    <strong>Font: </strong>36px bold.<br>rgb: 29, 28, 29.
+                </div>
+                <div>
+                    <strong>Font: </strong>36px regular.<br>rgb: 179, 177, 179.
+                </div>
+                <div>
+                    <strong>Font: </strong>36px bold.<br>rgb: 29, 28, 29.
+                </div>
+                <div>
+                    <strong>Font: </strong>36px bold.<br>rgb: 28, 28, 28.<br>Text 2px down.
+                </div>
+            </div>
+        </div>
+        <p>
+            Notice the subtle dust gradient wrapping the button. On hover state this dust transforms to glow. This behavior will try to be consistent with all the widgets on hover. Like for instance, the technology cards.
+        </p>
+        <hr>
+        <h2>Confirm button</h2>
+        <div class="fio-table">
+            <div class="fio-row">
+                <button class="fio-confirm">Idle</button>
+                <button disabled class="fio-confirm">Disabled</button>
+                <button class="hover fio-confirm">Hover</button>
+                <button class="active fio-confirm">Press</button>
+            </div>
+        </div>
+        <p>
+            * Confirm button will be located always at the right sice. Its function is to accept and move to the next screen.
+        </p>
+        <hr>
+        <h2>Back button</h2>
+        <div class="fio-table">
+            <div class="fio-row">
+                <button class="fio-back">Idle</button>
+                <button disabled class="fio-back">Disabled</button>
+                <button class="hover fio-back">Hover</button>
+                <button class="active fio-back">Press</button>
+            </div>
+        </div>
+        <p>
+            * Located always at the left side. Navigational use only.
+        </p>
+        <hr>
+        <h2>Cancel button</h2>
+        <div class="fio-table">
+            <div class="fio-row">
+                <button class="fio-cancel">Idle</button>
+                <button disabled class="fio-cancel">Disabled</button>
+                <button class="hover fio-cancel">Hover</button>
+                <button class="active fio-cancel">Press</button>
+            </div>
+            <div class="fio-row">
+                <div>
+                    <strong>Font: </strong>36px bold.<br>rgb: 29, 28, 29.
+                </div>
+                <div>
+                    <strong>Font: </strong>36px regular.<br>rgb: 253, 168, 168.
+                </div>
+                <div>
+                    <strong>Font: </strong>36px bold.<br>rgb: 29, 28, 29.
+                </div>
+                <div>
+                    Text 2px down.
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="fio-row">
+            <h2>Checkboxes</h2>
+            <h2>Switch</h2>
+        </div>
+        <div class="fio-section-container">
+            <div class="fio-row">
+                <div class="fio-section">
+                    <div class="fio-row">
+                        <div>
+                            <label>
+                                <input type="checkbox">Unchecked
+                            </label>
+                            <label>
+                                <input type="checkbox" class="hover">Hover
+                            </label>
+                            <label>
+                                <input type="checkbox" class="active">Press
+                            </label>
+                        </div>
+                        <div>
+                            <label>
+                                <input type="checkbox" checked>Checked
+                            </label>
+                            <label>
+                                <input type="checkbox" class="hover" checked>Hover
+                            </label>
+                            <label>
+                                <input type="checkbox" class="active" checked>Press
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="fio-section">
+                    <input type="checkbox" class="fio-switch" data-off="Option A" data-on="Option B">
+                    <input type="checkbox" class="fio-switch hover" data-off="Option A" data-on="Hover" checked>
+                    <input type="checkbox" class="fio-switch active" data-off="Option A" data-on="Press" checked>
+                </div>
+            </div>
+        </div>
+        <div class="fio-section-container">
+            <div class="fio-section">
+                <h2>Radio buttons. (heading h2 = 28px bold)</h2>
+                <div class="fio-row">
+                    <div>
+                        <label>
+                            <input type="radio" name="radio-example">Unchecked radio button.
+                        </label>
+                        <label>
+                            <input type="radio" name="radio-example" checked>Unchecked radio button.
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            <input type="radio" class="hover">Hovered radio button.
+                        </label>
+                        <label>
+                            <input type="radio" class="active">Pressed radio button.
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class="fio-full-width">
+        <h2>Tabs</h2>
+        <div class="fio-frame fio-tab-container">
+            <div class="fio-tab-list">
+                <div class="fio-tab">Inactive tab</div>
+                <div class="fio-tab">Longer inactive tab</div>
+                <div class="fio-tab">Active tab</div>
+                <div class="fio-tab">Inactive tab</div>
+                <div class="fio-tab hover">Hover</div>
+            </div>
+            <div class="fio-tab-content">
+                <p>
+                    This tab system is designed for the options panel. It works inside a frame and it uses its own background,ligher than the normal panel.
+                    <br> Any widget should be compatible with this background.
+                </p>
+                <p>
+                    The inactive tab texture is the same as a normal button. The only difference with a button are the rounded top corners and the shadow casted by the active page bottom.
+                </p>
+            </div>
+        </div>
+        <hr>
+        <h2>Loading bar</h2>
+        <div class="fio-frame">
+            <div class="fio-loading">45%</div>
+        </div>
+        <div class="fio-loading-label">Loading sprites ...</div>
+        <hr>
+        <h2>Slots</h2>
+        <div class="fio-row">
+            <div>
+                <div class="fio-slot-container">
+                    <div class="fio-inserter" data-val="13"></div>
+                    <div class="fio-inserter" data-val="13"></div>
+                    <div class="fio-inserter hover" data-val="13"></div>
+                    <div class="fio-inserter active" data-val="13"></div>
+                    <div class="fio-inserter" data-val="13"></div>
+                </div>
+                <div class="fio-row">
+                    <div>Idle</div>
+                    <div>Hover</div>
+                    <div>Press (Icon y-2px)</div>
+                </div>
+            </div>
+            <div>
+                We use slots only with "real" items. Those are the interactive ones, you can move them. Like in the Quickbar or the inventory.
+            </div>
+        </div>
+        <div class="fio-section-container">
+            <div class="fio-section">
+                <h2>Filters</h2>
+                <div class="fio-slot-container">
+                    <div class="fio-bad fio-inserter" data-val="13"></div>
+                    <div class="fio-bad fio-inserter hover" data-val="13"></div>
+                    <div class="fio-bad fio-inserter active" data-val="13"></div>
+                    <div class="fio-good fio-inserter" data-val="13"></div>
+                    <div class="fio-good fio-inserter hover" data-val="13"></div>
+                    <div class="fio-good fio-inserter active" data-val="13"></div>
+                    <div class="fio-lock fio-inserter" data-val="13"></div>
+                    <div class="fio-lock fio-inserter hover" data-val="13"></div>
+                    <div class="fio-lock fio-inserter active" data-val="13"></div>
+                </div>
+            </div>
+        </div>
+        <h2>Stickers</h2>
+        <div class="fio-row">
+            <div>
+                <div class="fio-sticker-container">
+                    <div class="fio-inserter" data-val="13"></div>
+                    <div class="fio-inserter" data-val="13"></div>
+                    <div class="fio-inserter" data-val="13"></div>
+                    <div class="fio-inserter" data-val="13"></div>
+                    <div class="fio-inserter" data-val="13"></div>
+                </div>
+            </div>
+            <div>
+                A sticker is a representation of an item, but not the item itself. We use them as a reference to the item. Like in a recipe.
+            </div>
+        </div>
+        <h2>Crafting button</h2>
+        <div class="fio-row">
+            <div>
+                <div class="fio-crafting-container">
+                    <div class="fio-inserter"></div>
+                    <div class="fio-group">
+                        <div class="fio-inserter"></div>
+                        <div class="fio-inserter hover"></div>
+                        <div class="fio-inserter active"></div>
+                    </div>
+                    <div class="fio-inserter"></div>
+                </div>
+                <div class="fio-row">
+                    <div>Idle</div>
+                    <div>Hover</div>
+                    <div>Press</div>
+                    <div>Group</div>
+                </div>
+            </div>
+            <div>
+                Crafting buttons are mainly used in the crafting window. Those are like stickers (representation of an item) but you can press the button.
+            </div>
+        </div>
+        <h2>Virtual slot</h2>
+        <div class="fio-row">
+            <div>
+                <div class="fio-virtual-container">
+                    <div class="fio-inserter"></div>
+                    <div class="fio-inserter"></div>
+                    <div class="fio-inserter hover"></div>
+                    <div class="fio-inserter active"></div>
+                    <div class="fio-inserter"></div>
+                </div>
+                <div class="fio-row">
+                    <div>Idle</div>
+                    <div>Hover</div>
+                    <div>Press</div>
+                </div>
+            </div>
+            <div>
+                A slot that contains a virtual item. Like for example the logistics requests. The difference with the sticker is that a virtual slot can be pressed in order to open the filters menu.
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
