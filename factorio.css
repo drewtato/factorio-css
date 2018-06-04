@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,700');
+:root {
+    --bg: #161616 url(bg.png);
+    --panel-bg: #313031;
+    --frame-bg: #242324;
+    --title-color: #ffe6c0;
+    --body-color: #fff;
+    --input-color: #1d1c1d;
+    --infotext-color: #75dafb;
+    --disabled-color: #b3b1b3;
+    --factorio-orange: #ffae00;
+    --cancel-red: #fe4d4d;
+    --orange-border: 2px solid var(--factorio-orange);
+    --blur-color: #241508;
+    --font-scale: 0.75;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    font-family: "Titillium Web", sans-serif;
+    color: var(--body-color);
+    font-weight: 400;
+}
+
+body * {
+    font-size: calc(var(--font-scale) * var(--rel-size, 28px));
+}
+
+strong, .fio-h1, .fio-h2 {
+    font-weight: 700;
+}
+
+.fio-h1, .fio-h2 {
+    color: var(--title-color);
+}
+
+.fio-h1 {
+    --rel-size: 36px;
+}
+
+p {
+    margin: 1em 0 0;
+}
+
+.fio-row {
+    display: flex;
+    flex-direction: row;
+}
+
+/* Containers: panel, frame, section, blue-frame */
+
+.fio-panel {
+    display: flex;
+    flex-direction: column;
+    background: var(--panel-bg);
+    box-shadow: 0 0 25px 0 #000;
+    margin: 25px;
+    padding: 20px;
+}
