@@ -45,6 +45,12 @@ strong, .fio-h1, .fio-h2 {
 
 .fio-h1 {
     --rel-size: 36px;
+    line-height: 2ch;
+    height:calc(48px * var(--font-scale));
+    margin-right: auto;
+    padding-right: 30px;
+    background-color: var(--panel-bg);
+    z-index: 1;
 }
 
 p {
@@ -93,13 +99,4 @@ p {
     height: calc(48px * var(--font-scale));
     width: calc(100% - 70px);
     background-image: var(--end-marks);
-}
-
-.fio-h1 {
-    line-height: 2ch;
-    height:calc(48px * var(--font-scale));
-    margin-right: auto;
-    padding-right: 30px;
-    background-color: var(--panel-bg);
-    z-index: 1;
 }
