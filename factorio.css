@@ -12,6 +12,7 @@
     --cancel-red: #fe4d4d;
     --orange-border: 2px solid var(--factorio-orange);
     --blur-color: #251c13;
+    --dusty-blur: 0 0 10px 2px var(--blur-color);
     --font-scale: 1;
     --end-marks: 
         linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent 4px),
@@ -21,6 +22,8 @@
         linear-gradient(to top, rgba(255, 255, 255, 0.15), transparent 4px),
         repeating-linear-gradient(to right, #2a2a2a, #2d2c2d 2px, #2a2a2a 4px)
     ;
+    --lit-surface-color: rgba(255, 255, 255, 0.3);
+    --shadow-color: rgba(0, 0, 0, 0.5);
 }
 
 body {
@@ -28,7 +31,7 @@ body {
     background: var(--bg);
     font-family: "Titillium Web", sans-serif;
     color: var(--body-color);
-    font-weight: 400;
+    font-weight: normal;
 }
 
 body * {
@@ -36,7 +39,7 @@ body * {
 }
 
 strong, .fio-h1, .fio-h2 {
-    font-weight: 700;
+    font-weight: bold;
 }
 
 .fio-h1, .fio-h2 {
@@ -84,9 +87,9 @@ hr.fio-full-width {
     background: var(--panel-bg);
     box-shadow: 
         0 0 25px 0 #000, 
-        inset 12px 0 3px -11px rgba(0, 0, 0, 0.5), 
-        inset -12px 0 3px -11px rgba(0, 0, 0, 0.5), 
-        inset 0 -12px 2.5px -9px rgba(0, 0, 0, 0.5), 
+        inset 12px 0 3px -11px var(--shadow-color), 
+        inset -12px 0 3px -11px var(--shadow-color), 
+        inset 0 -12px 2.5px -9px var(--shadow-color), 
         inset 0 12px 4px -9px rgba(230, 240, 255, 0.25), 
         inset 0 2px 8px 2px var(--blur-color)
     ;
@@ -115,6 +118,18 @@ hr.fio-full-width {
     background-image: var(--end-marks);
 }
 
+.fio-frame {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    background: var(--frame-bg);
+    box-shadow: 
+        0 -3px 7px 0 #000,
+        0 -4px 2px -1px #000,
+        0 3.8px 3px -1.2px var(--lit-surface-color),
+        inset 0 0 12px 1px var(--shadow-color);
+    ;
+}
+
 /* Input types: text, checkbox, checkbox.fio-switch, radio */
 input[type=checkbox].fio-switch::before {
     content: attr(data-off);
@@ -122,4 +137,77 @@ input[type=checkbox].fio-switch::before {
 
 input[type=checkbox].fio-switch::after {
     content: attr(data-on);
+}
+
+/* Buttons: normal, confirm, back, cancel */
+button {
+    box-shadow: 
+        var(--dusty-blur),
+        inset 0 6px 4px -4px #fff,
+        inset 0 -6px 3px -4px #000,
+        inset 0 0 10px 0 #000
+    ;
+    color: #1d1c1d;
+    font-family: inherit;
+    --rel-size: 36px;
+    font-weight: bold;
+    line-height: calc(var(--font-scale) * 64px);
+    margin: 8px;
+    border: none;
+    padding: 0px calc(var(--font-scale) * 24px);
+    background: #8e8e8e;
+}
+
+/* Fun part: scrollbars */
+::-webkit-scrollbar {
+    width: 25px;
+    height: 25px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #858585;
+    background-image:
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2) 3px, transparent 8px),
+        linear-gradient(to top, #111, #111 1px, transparent 4px),
+        linear-gradient(to right, #5e5e5e, transparent 4px),
+        linear-gradient(to left, #5e5e5e, transparent 4px),
+        linear-gradient(to bottom, #858585, #858585 8px, transparent 8px),
+        linear-gradient(to top, #858585, #858585 8px, transparent 8px),
+        linear-gradient(to right, #858585, #858585 4px, transparent 4px),
+        linear-gradient(to left, #858585, #858585 4px, transparent 4px),
+        repeating-linear-gradient(to bottom, #626262, #a9a9a9 5px, #626262 8px)
+    ;
+    background-clip: padding-box;
+    border: 3px solid transparent;
+}
+
+::-webkit-scrollbar-thumb:horizontal {
+    background-image:
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.8), transparent 3px),
+        linear-gradient(to top, #111, transparent 3px),
+        linear-gradient(to right, #5e5e5e, transparent 4px),
+        linear-gradient(to left, #5e5e5e, transparent 4px),
+        linear-gradient(to bottom, #858585, #858585 4px, transparent 4px),
+        linear-gradient(to top, #858585, #858585 4px, transparent 4px),
+        linear-gradient(to right, #858585, #858585 8px, transparent 8px),
+        linear-gradient(to left, #858585, #858585 8px, transparent 8px),
+        repeating-linear-gradient(to right, #626262, #a9a9a9 5px, #626262 8px)
+    ;
+}
+
+::-webkit-scrollbar-track {
+    background: #333030;
+    box-shadow: 
+        -5px 0 10px -3px var(--shadow-color), 
+        inset 0 1px 3px 1px var(--shadow-color),
+        inset 0 -4px 3px -1px var(--lit-surface-color)
+    ;
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--panel-bg);
+    box-shadow: 
+        inset 0 -1px 3px 1px var(--shadow-color),
+        inset 0 4px 3px -1px var(--lit-surface-color)
+    ;
 }
