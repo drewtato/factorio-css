@@ -11,7 +11,7 @@
     --factorio-orange: #ffae00;
     --cancel-red: #fe4d4d;
     --orange-border: 2px solid var(--factorio-orange);
-    --blur-color: #241508;
+    --blur-color: #251c13;
     --font-scale: 0.75;
 }
 
@@ -54,7 +54,28 @@ p {
     display: flex;
     flex-direction: column;
     background: var(--panel-bg);
-    box-shadow: 0 0 25px 0 #000;
-    margin: 25px;
+    box-shadow: 
+        0 0 25px 0 #000, 
+        inset 12px 0 3px -11px rgba(0, 0, 0, 0.5), 
+        inset -12px 0 3px -11px rgba(0, 0, 0, 0.5), 
+        inset 0 -12px 2.5px -9px rgba(0, 0, 0, 0.5), 
+        inset 0 12px 4px -9px rgba(230, 240, 255, 0.25), 
+        inset 0 2px 8px 2px var(--blur-color)
+    ;
+    margin: 15px;
     padding: 20px;
+}
+
+.fio-panel::after {
+    content: '';
+    height: 64px;
+    width: 100%;
+    background-image: 
+        linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent 4px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.15), transparent 4px),
+        repeating-linear-gradient(to right, transparent, transparent 4px, #373637 4px, #3b3a3b 6px, #373637 8px),
+        linear-gradient(to bottom, rgba(0, 0, 0, 0.1), transparent 4px),
+        linear-gradient(to top, rgba(255, 255, 255, 0.15), transparent 4px),
+        repeating-linear-gradient(to right, #2a2a2a, #2d2c2d 2px, #2a2a2a 4px)
+    ;
 }
