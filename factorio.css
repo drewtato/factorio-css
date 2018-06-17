@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Titillium+Web:400,700');
-:root {
+:root * {
     --bg: #161616 url(bg.png);
     --panel-bg: #313031;
     --frame-bg: #242324;
@@ -9,6 +9,7 @@
     --infotext-color: #75dafb;
     --disabled-color: #b3b1b3;
     --factorio-orange: #ffae00;
+    --factorio-orange-light: #f1be64;
     --cancel-red: #fe4d4d;
     --orange-border: 2px solid var(--factorio-orange);
     --blur-color: #251c13;
@@ -24,6 +25,7 @@
     ;
     --lit-surface-color: rgba(255, 255, 255, 0.3);
     --shadow-color: rgba(0, 0, 0, 0.5);
+    outline-color: var(--factorio-orange);
 }
 
 body {
@@ -139,10 +141,14 @@ input[type=checkbox].fio-switch::after {
     content: attr(data-on);
 }
 
-/* Buttons: normal, confirm, back, cancel */
+/*  Buttons: normal, confirm, back, cancel
+    States: idle, disabled, hover, press */
 button {
     box-shadow: 
         var(--dusty-blur),
+        var(--inset-shadow)
+    ;
+    --inset-shadow: 
         inset 0 6px 4px -4px #fff,
         inset 0 -6px 3px -4px #000,
         inset 0 0 10px 0 #000
@@ -154,8 +160,42 @@ button {
     line-height: calc(var(--font-scale) * 64px);
     margin: 8px;
     border: none;
-    padding: 0px calc(var(--font-scale) * 24px);
+    padding: 2px calc(var(--font-scale) * 24px);
     background: #8e8e8e;
+    transition-duration: 0.05s;
+}
+
+button:hover:not(:disabled), button.hover:not(:disabled) {
+    --blur-color: var(--factorio-orange);
+}
+
+button:disabled {
+    color: #b3b1b3;
+    font-weight: normal;
+    background: #272727;
+}
+
+button:active, button.active {
+    background: var(--factorio-orange-light);
+    outline: none;
+    padding-top: 4px;
+    padding-bottom: 0;
+}
+
+button:disabled, button:active, button.active {
+    --inset-shadow:
+        inset 0 2px 6px 2px rgba(0, 0, 0, 0.8)
+    ;
+}
+
+/*  Selection color. Keeping this above 50% luminosity,
+    since this is a dark theme. The 0.8 alpha is needed
+    because anything with alpha 1 becomes alpha 0.5-ish
+    but not really alpha more like multiply or something,
+    and looks really dirty. */
+::selection {
+    background: rgba(241, 190, 100, 0.8);
+    color: #000;
 }
 
 /* Fun part: scrollbars */
@@ -165,6 +205,7 @@ button {
 }
 
 ::-webkit-scrollbar-thumb {
+    min-height: 32px;
     background-color: #858585;
     background-image:
         linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.2) 3px, transparent 8px),
@@ -182,6 +223,7 @@ button {
 }
 
 ::-webkit-scrollbar-thumb:horizontal {
+    min-width: 32px;
     background-image:
         linear-gradient(to bottom, rgba(255, 255, 255, 0.8), transparent 3px),
         linear-gradient(to top, #111, transparent 3px),
